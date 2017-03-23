@@ -242,28 +242,7 @@ d3.json("data/nashPermits.json", function(data) {
 	
 	//initialize datatable
 	datatable.dataTable(dataTableOptions);
-	
-	//row details
-	function format ( d ) {
-		return '<b>Purpose: </b>' + d.purpose;
-	}
-	
-	datatable.DataTable().on('click', 'tr[role="row"]', function () {
-        var tr = $(this);
-        var row = datatable.DataTable().row( tr );
- 
-        if ( row.child.isShown() ) {
-            // This row is already open - close it
-            row.child.hide();
-            tr.removeClass('shown');
-        }
-        else {
-            // Open this row
-            row.child( format(row.data()) ).show();
-            tr.addClass('shown');
-        }
-    } );
-	
+		
 	//custom refresh function, see http://stackoverflow.com/questions/21113513/dcjs-reorder-datatable-by-column/21116676#21116676
 	function RefreshTable() {
             dc.events.trigger(function () {
